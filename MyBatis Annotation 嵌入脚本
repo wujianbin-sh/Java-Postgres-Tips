@@ -1,0 +1,16 @@
+<pre>
+(这里使用了 MybatisPlus)
+
+通过 <script> 可以直接在 SQL 中嵌入脚本, 类似在 Mapper 的 XML 的配置一样:
+
+public interface UserMapper extends BaseMapper<User> {
+	@Insert("<script>" +
+			 "SELECT * from users wher id in " +
+			 "<foreach item='item' index='index' collection='idList'" +
+	             " open='(' separator=',' close=')'>" +
+	             " #{item}" +
+        	 "</foreach>)" +
+        	 " and ....."+
+        "</script>") 
+	public void queryUser(@Param("idList") List<Integer> idList, ......);
+}
