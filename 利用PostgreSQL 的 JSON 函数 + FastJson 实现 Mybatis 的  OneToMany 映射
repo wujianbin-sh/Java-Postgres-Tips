@@ -1,5 +1,7 @@
 <pre>
-巧妙地利用 PostgreSQL的 JSON 动态实现 1:N 的映射.
+巧妙地利用 PostgreSQL的 JSON 动态实现 1:N 的映射,
+而且可以完全在 Mapper的 Java Class 中使用 Annotation 实现, 无需使用 Mapper XML 做配置,
+且无需像 Mapper XML 配置对于1多多要做 Resultset 的字段映射,因为 FastJson 会智能地做字段映射.
 
 1. PostgreSQL SQL模板:
 select 主表.*, 
